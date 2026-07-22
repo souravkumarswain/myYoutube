@@ -1,8 +1,11 @@
+import Header from "./components/Header"
 
 function App() {
 
   return (
-    <>Welcome to my youtube</>
+    <>
+      <Header/>
+    </>
   )
 }
 

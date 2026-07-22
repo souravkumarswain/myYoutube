@@ -1,0 +1,1 @@
+export const YOUTUBE_LOGO = 'https://www.gstatic.com/youtube/img/icons/mweb/youtube_fill/logo_with_text/v3/20px.svg';
