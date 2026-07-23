@@ -45,7 +45,7 @@ function Menu() {
                 <h1 className="text-xs">Home</h1>
             </span>
             <span onClick={onClickShorts} className="mb-4 flex flex-col items-center py-4 px-1 rounded-xl hover:bg-gray-100 cursor-pointer">
-                {shorts? <SiYoutubeshorts size={30}/>:<img src={shortsIcon} />}
+                {shorts? <SiYoutubeshorts size={24}/>:<img src={shortsIcon}/>}
                 <h1 className="text-xs">Shorts</h1>
             </span>
             <span onClick={onClickSubscription} className="mb-4 flex flex-col items-center py-4 px-1 rounded-xl hover:bg-gray-100 cursor-pointer">
