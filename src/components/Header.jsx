@@ -11,9 +11,9 @@ import { CiUser } from "react-icons/ci";
 function Header() {
   return (
     <div className='grid grid-flow-col p-2 itmes-align shadow-2xl'>
-        <div className='col-span-2 flex gap-4'>
-            <button><RxHamburgerMenu className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 cursor-pointer" size={40}/></button>
-            <img className= "w-30" src={YOUTUBE_LOGO} alt="youtube_logo" />
+        <div className='col-span-2 flex gap-4 px-4'>
+            <button><RxHamburgerMenu className="p-2 rounded-full hover:bg-gray-200 cursor-pointer" size={40}/></button>
+            <img className= "w-25" src={YOUTUBE_LOGO} alt="youtube_logo" />
         </div>
         <div className='col-span-8 flex justify-center items-center'>
             <input 
