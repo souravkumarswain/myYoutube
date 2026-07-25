@@ -7,7 +7,7 @@ const navSlice = createSlice({
     },
     reducers:{
         showNavbar:(state) => {
-            state.navState = true;
+            state.navState = !state.navState;
         }
     }
 

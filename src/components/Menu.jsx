@@ -39,20 +39,20 @@ function Menu() {
         dispatch(userButtonClicked(true));
     }
     return (
-        <div className="mt-1 ml-1 mr-1">
-            <span onClick={onClickHome} className="mb-4 flex flex-col items-center py-4 px-1 rounded-xl hover:bg-gray-100 cursor-pointer">
+        <div className="fixed top-16 left-0 mt-1 ml-1 mr-1 h-[calc(100vh-4rem)] overflow-y-auto">
+            <span onClick={onClickHome} className={`flex flex-col mb-4 py-4 px-1 items-center rounded-xl ${home ? 'bg-gray-100':''} hover:bg-gray-100 cursor-pointer`}>
                 {home?<TiHome size={30} />:<TiHomeOutline size={30}/>}
                 <h1 className="text-xs">Home</h1>
             </span>
-            <span onClick={onClickShorts} className="mb-4 flex flex-col items-center py-4 px-1 rounded-xl hover:bg-gray-100 cursor-pointer">
+            <span onClick={onClickShorts} className={`flex flex-col py-4 px-1 mb-4 items-center rounded-xl ${shorts ? 'bg-gray-100':''} hover:bg-gray-100 cursor-pointer`}>
                 {shorts? <SiYoutubeshorts size={24}/>:<img src={shortsIcon}/>}
                 <h1 className="text-xs">Shorts</h1>
             </span>
-            <span onClick={onClickSubscription} className="mb-4 flex flex-col items-center py-4 px-1 rounded-xl hover:bg-gray-100 cursor-pointer">
+            <span onClick={onClickSubscription} className={`flex flex-col py-4 px-1 mb-4 items-center rounded-xl ${subscription ? 'bg-gray-100':''} hover:bg-gray-100 cursor-pointer`}>
                 {subscription?<MdSubscriptions size={30}/>:<MdOutlineSubscriptions size={30} />}
                 <h1 className="text-xs">Subscriptions</h1>
             </span>
-            <span onClick={onClickUser} className="mb-4 flex flex-col items-center py-4 px-1 rounded-xl hover:bg-gray-100 cursor-pointer">
+            <span onClick={onClickUser} className={`mb-4 flex flex-col items-center py-4 px-1 rounded-xl hover:bg-gray-100 cursor-pointer`}>
                 {user?<FaUserCircle size={30}/>:<FaRegUserCircle size={30} />}
                 <h1 className="text-xs">You</h1>
             </span>

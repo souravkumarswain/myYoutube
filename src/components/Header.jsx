@@ -5,14 +5,21 @@ import { TiMicrophoneOutline } from "react-icons/ti";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { LiaUploadSolid } from "react-icons/lia";
 import { CiUser } from "react-icons/ci";
+import { useDispatch, useSelector } from 'react-redux';
+import { showNavbar } from '../utils/navSlice';
 
 
 
 function Header() {
+  const dispatch = useDispatch()
+  const showNav = useSelector(store => store.nav.navState)
+  const onClickMenuFull = () => {
+    dispatch(showNavbar())
+  }
   return (
-    <div className='grid grid-flow-col p-2 itmes-align shadow-2xl'>
-        <div className='col-span-2 flex gap-4 px-4'>
-            <button><RxHamburgerMenu className="p-2 rounded-full hover:bg-gray-200 cursor-pointer" size={40}/></button>
+    <div className={`fixed top-0 left-0 right-0 w-full h-16 grid grid-flow-col p-2 items-center shadow-2xl bg-white z-50`}>
+        <div className='col-span-2 flex items-center gap-4 px-4'>
+            <button><RxHamburgerMenu onClick={onClickMenuFull} className="p-2 rounded-full hover:bg-gray-200 cursor-pointer" size={40}/></button>
             <img className= "w-25" src={YOUTUBE_LOGO} alt="youtube_logo" />
         </div>
         <div className='col-span-8 flex justify-center items-center'>
