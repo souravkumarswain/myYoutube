@@ -5,14 +5,13 @@ import { TiMicrophoneOutline } from "react-icons/ti";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { LiaUploadSolid } from "react-icons/lia";
 import { CiUser } from "react-icons/ci";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { showNavbar } from '../utils/navSlice';
 
 
 
 function Header() {
   const dispatch = useDispatch()
-  const showNav = useSelector(store => store.nav.navState)
   const onClickMenuFull = () => {
     dispatch(showNavbar())
   }
