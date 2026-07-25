@@ -4,7 +4,7 @@ import VideosContainer from "./VideosContainer";
 
 function Body() {
   return (
-    <div className="flex pt-16 pl-30">
+    <div className="flex pt-16 pl-25">
         <Menu/>
         <VideosContainer/>
         <MenuFull/>

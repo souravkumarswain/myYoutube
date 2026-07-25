@@ -18,7 +18,7 @@ function TopNavbar() {
     setSelected(id)
   }
   return (
-    <div className=" fixed top-16 left-30 flex gap-3 py-2 overflow-x-auto">
+    <div className=" fixed top-16 left-25 flex gap-3 py-2 overflow-x-auto bg-white px-2 w-screen">
       {
         options.map((eachOption) =>
           <div key={eachOption.id} onClick={() => onClickNavOption(eachOption.id)} 
