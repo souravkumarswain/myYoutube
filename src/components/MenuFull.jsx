@@ -17,6 +17,7 @@ import { PiApplePodcastsLogoBold } from "react-icons/pi";
 import { MdOutlineCardMembership } from "react-icons/md";
 import { showNavbar } from '../utils/navSlice';
 import { homeButtonClicked, shortsButtonClicked, subscriptionButtonClicked, userButtonClicked } from "../utils/menuSlice";
+import { Link } from "react-router-dom";
 
 function MenuFull() {
   const dispatch = useDispatch();
@@ -70,10 +71,10 @@ function MenuFull() {
       <div className='fixed top-15 left-0 h-screen w-60 bg-white shadow-2xl z-50'>
         <div className='h-[calc(100vh-5rem)] overflow-y-auto px-3 pb-6'>
           <div className='mt-3 space-y-2'>
-            <button onClick={onClickHome} className={`w-full flex items-center gap-4 rounded-xl px-3 py-3 ${home ? 'bg-gray-100' : 'hover:bg-gray-100'} cursor-pointer`}>
+            <Link to='/'><button onClick={onClickHome} className={`w-full flex items-center gap-4 rounded-xl px-3 py-3 ${home ? 'bg-gray-100' : 'hover:bg-gray-100'} cursor-pointer`}>
               {home ? <TiHome size={30} /> : <TiHomeOutline size={30} />}
               <span className='font-medium text-sm'>Home</span>
-            </button>
+            </button></Link>
             <button onClick={onClickShorts} className={`w-full flex items-center gap-4 rounded-xl px-3 py-3 ${shorts ? 'bg-gray-100' : 'hover:bg-gray-100'} cursor-pointer`}>
               {shorts? <SiYoutubeshorts size={24}/>:<img src={shortsIcon}/>}
               <span className='font-medium text-sm'>Shorts</span>

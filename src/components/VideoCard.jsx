@@ -7,7 +7,7 @@ function VideoCard({ info }) {
   }
 
   return (
-    <div className="rounded-2xl bg-white shadow-sm">
+    <div className="rounded-2xl bg-white shadow-sm hover:cursor-pointer">
       <img className="w-90 rounded-2xl" src={thumbnails.medium.url} alt="poster" />
       <ul className="w-80 p-2">
         <li className="font-bold">{title}</li>

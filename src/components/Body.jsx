@@ -1,12 +1,10 @@
-import Menu from "./Menu";
+import { Outlet } from "react-router-dom";
 import MenuFull from "./MenuFull";
-import VideosContainer from "./VideosContainer";
 
 function Body() {
   return (
     <div className="flex pt-16 pl-25">
-        <Menu/>
-        <VideosContainer/>
+        <Outlet/>
         <MenuFull/>
     </div>
   )
