@@ -20,8 +20,8 @@ function Videos() {
     <div className="pt-17 flex gap-3 overflow-auto flex-wrap">
       {
         videos.length > 0 ? videos.map((eachVideo) => (
-          <Link to={'/watch?v='+eachVideo.id}>
-            <VideoCard key={eachVideo.id} info={eachVideo} />
+          <Link key={eachVideo.id} to={'/watch?v='+eachVideo.id}>
+            <VideoCard  info={eachVideo} />
           </Link>
           
         )) : <div>Loading...</div>
