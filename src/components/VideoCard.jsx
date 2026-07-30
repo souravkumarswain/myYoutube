@@ -1,5 +1,5 @@
 function VideoCard({ info }) {
-  console.log(info)
+  // console.log(info)
   const {channelTitle,thumbnails,title} = info.snippet
   const{viewCount} = info.statistics
   if (!info) {

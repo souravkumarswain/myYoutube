@@ -1,20 +1,10 @@
-import { useEffect, useState } from "react"
-import { YOUTUBE_VIDEOS_API } from "../utils/constants"
+
 import VideoCard from "./VideoCard"
 import { Link } from "react-router-dom"
+import useMainPageVideos from "../hooks/useMainPageVideos";
 
 function Videos() {
-  const [videos, setVideos] = useState([])
-
-  useEffect(() => {
-    const getVideoFromYoutube = async () => {
-      const data = await fetch(YOUTUBE_VIDEOS_API)
-      const json = await data.json()
-      setVideos(json.items || [])
-    }
-
-    getVideoFromYoutube()
-  }, [])
+  const videos = useMainPageVideos()
 
   return (
     <div className="pt-17 flex gap-3 overflow-auto flex-wrap">
