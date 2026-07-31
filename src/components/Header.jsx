@@ -7,27 +7,40 @@ import { LiaUploadSolid } from "react-icons/lia";
 import { CiUser } from "react-icons/ci";
 import { useDispatch } from 'react-redux';
 import { showNavbar } from '../utils/navSlice';
+import { useState } from 'react';
+import useSearchSuggestions from '../hooks/useSearchSuggestions';
+import { setShowSuggestionBox } from '../utils/searchSuggestionsSlice';
 
 
 
 function Header() {
+  const [searchQuery,setSearchQuery] = useState("")
   const dispatch = useDispatch()
+  useSearchSuggestions(searchQuery) 
   const onClickMenuFull = () => {
     dispatch(showNavbar())
   }
+  
   return (
-    <div className={`fixed top-0 left-0 right-0 w-full h-16 grid grid-flow-col p-2 items-center shadow-2xl bg-white z-50`}>
+    <div className={`fixed top-0 left-0 right-0 w-full h-16 grid grid-flow-col p-2 items-start shadow-2xl bg-white z-50`}>
         <div className='col-span-2 flex items-center gap-4 px-4'>
             <button><RxHamburgerMenu onClick={onClickMenuFull} className="p-2 rounded-full hover:bg-gray-200 cursor-pointer" size={40}/></button>
             <img className= "w-25" src={YOUTUBE_LOGO} alt="youtube_logo" />
         </div>
-        <div className='col-span-8 flex justify-center items-center'>
+        <div className='col-span-8'>
+          <div className='flex justify-center items-center'>
+            <div></div>
             <input 
             className= "w-2/3 border border-gray-400 p-2 pl-4 rounded-l-full" 
+            onChange={(e) => setSearchQuery(e.target.value) }
+            value = {searchQuery}
             type="text" 
-            placeholder='Search'/>
+            placeholder='Search'
+            onFocus={() => dispatch(setShowSuggestionBox(true)) }
+            onBlur={() => dispatch(setShowSuggestionBox(false))}/>
             <IoSearchOutline  className= "border border-gray-400 p-2 rounded-r-full mr-10 hover:bg-gray-200 cursor-pointer " size={41.5}/>
             <TiMicrophoneOutline className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 cursor-pointer" size={50}/>
+            </div>
         </div>
         <div className='col-span-2 flex justify-center items-center gap-4'>
           <LiaUploadSolid className = "hover:bg-gray-200 p-2 rounded-full cursor-pointer" size={40}/>
