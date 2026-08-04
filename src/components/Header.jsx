@@ -36,7 +36,7 @@ function Header() {
             value = {searchQuery}
             type="text" 
             placeholder='Search'
-            onFocus={() => dispatch(setShowSuggestionBox(true)) }
+            onFocus={() => dispatch(setShowSuggestionBox(true))}
             onBlur={() => dispatch(setShowSuggestionBox(false))}/>
             <IoSearchOutline  className= "border border-gray-400 p-2 rounded-r-full mr-10 hover:bg-gray-200 cursor-pointer " size={41.5}/>
             <TiMicrophoneOutline className="bg-gray-100 p-2 rounded-full hover:bg-gray-200 cursor-pointer" size={50}/>
