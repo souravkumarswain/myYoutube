@@ -7,9 +7,15 @@ import { PiShareFat } from "react-icons/pi";
 import useVidSuggestions from "../hooks/useVidSuggestions";
 import SuggestedVidCard from "./SuggestedVidCard";
 import { useState } from "react";
+import LiveComment from "./LiveComment";
+import { LuSendHorizontal } from "react-icons/lu";
+import { useDispatch } from "react-redux";
+import { addUserComment } from "../utils/commentSlice";
 
 
 const WatchVideoPage = () => {
+  const[userComment,setUserComment] = useState()
+  const dispatch = useDispatch()
   const [showDescription,setShowDescription] = useState(false)
   const [params] = useSearchParams()
   const vidId = params.get('v')
@@ -17,6 +23,17 @@ const WatchVideoPage = () => {
   const vidDetails = useVideoDetailsbyId(vidId)
   const vidSuggestions = useVidSuggestions(vidId)
   const { title, description, channelTitle } = vidDetails?.snippet || {}
+ 
+  const onClickPostComment = (e) => {
+    e.preventDefault();
+    dispatch(addUserComment(
+      {
+        author:"Sourav Swain",
+        quote:userComment
+      }
+    ))
+    setUserComment("")
+  }
 
   return (
     <div className="grid grid-flow-col">
@@ -50,6 +67,13 @@ const WatchVideoPage = () => {
           }
           <button onClick={() => setShowDescription(!showDescription)}className="text-blue-400 ml-2">{showDescription ? " ...Less" : " ...More"}</button>
           </h1>
+      </div>
+      <div className="w-[760] bg-slate-200 p-2 rounded-lg">
+        <LiveComment/>
+        <form onSubmit={onClickPostComment}className="flex justify-between items-center px-4 mt-2">
+          <input onSubmit = {(e) => setUserComment(e.target.value)} value={userComment} onChange={(e) => setUserComment(e.target.value)} className="w-full border-black border-solid rounded-xl p-2 mr-2 border-2" type="text" placeholder="Type your thought"/>
+          <LuSendHorizontal onClick={onClickPostComment} size={30} className="hover:cursor-pointer"/>
+        </form>
       </div>
     </div>
     <div className="col-span-6">
