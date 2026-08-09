@@ -6,9 +6,11 @@ import { SlDislike } from "react-icons/sl";
 import { PiShareFat } from "react-icons/pi";
 import useVidSuggestions from "../hooks/useVidSuggestions";
 import SuggestedVidCard from "./SuggestedVidCard";
+import { useState } from "react";
 
 
 const WatchVideoPage = () => {
+  const [showDescription,setShowDescription] = useState(false)
   const [params] = useSearchParams()
   const vidId = params.get('v')
 
@@ -42,7 +44,12 @@ const WatchVideoPage = () => {
         <PiShareFat className="ml-6 p-2 bg-gray-100 rounded-2xl hover:bg-gray-200 cursor-pointer" size={40}/>
       </div>
       <div className="p-3 my-3 bg-gray-100 rounded-xl w-3xl">
-        <h1 className="whitespace-pre-line text-base leading-loose font-semibold">{description}</h1>
+        <h1 className="whitespace-pre-line text-base leading-loose font-semibold">
+          {
+            showDescription ? description : description?.slice(0,300)
+          }
+          <button onClick={() => setShowDescription(!showDescription)}className="text-blue-400 ml-2">{showDescription ? " ...Less" : " ...More"}</button>
+          </h1>
       </div>
     </div>
     <div className="col-span-6">
